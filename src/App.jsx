@@ -48,14 +48,13 @@ function App() {
   // };
 
   const handleIncrement = async () => {
-    console.log('first');
     const newCount = count + 1;
     setCount(newCount);
-    console.log(newCount); // Log the updated count
     try {
       await updateDoc(collectionRef, {
         number: newCount
       });
+      alert("Your Prayer has been Tracked Successfully");
     } catch (error) {
       console.error("Error updating document: ", error);
     }
@@ -77,7 +76,7 @@ function App() {
 
   return (
     <>
-      <section className='bg flex flex-col justify-center items-center font-josefin relative text-white bg-scroll text-base md:text-lg'> 
+      <section className='bg flex flex-col justify-center items-center font-josefin relative text-white bg-scroll text-base'> 
         <div className={`${ishidden ? "hidden" : "fixed"} bg-yellow border-2 border-green  -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-[320px] px-3 rounded-xl h-[330px] flex flex-col justify-around items-center`}>
           <p>
             O God, you granted your servant Montse the grace of serene and cheerful dedication to your will with admirable simplicity in everyday life. Grant that I may lovingly offer to you all my daily activity and convert it into Christian service for others. Deign to glorify your servant Montse and through her intercession grant me the favor I ask of you… (here make your request). Amen.
@@ -93,7 +92,7 @@ function App() {
           </div>
           <div className='bg-green p-6 px-4 md:w-[60%]'>
             <h1 className='font-frank text-lg uppercase hidden md:block mb-3'>1000 Rosary Tracker For Fr. Tobe</h1>
-            <div className="h-[570px] min-[450px]:h-[500px] min-[500px]:h-[450px] min-[640px]:h-[370px] md:h-[480px] about flex flex-col items-center justify-around">
+            <div className="h-[570px] min-[450px]:h-[500px] min-[500px]:h-[450px] min-[640px]:h-[370px] md:h-[480px] lg:h-[450px] about flex flex-col items-center justify-around">
               <p>Fr Tobe Okoye is a priest of the prelature of Opus Dei ordained on May 9 2015. He serves as the chaplain of the Akoka Study Centre Yaba Lagos and Afara Leadership Centre Yaba Lagos.He was recently diagnosed with Myeloma, a form of blood cell cancer that would require further medical assessment and care at,  Clínica Universidad de Navarra, Madrid Spain.</p>
               <p> We wish to accompany him at this period with a lot of care and affection. Kindly join us in the care for Fr Tobe through</p>
               <div>
