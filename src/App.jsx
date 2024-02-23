@@ -76,8 +76,8 @@ function App() {
 
   return (
     <>
-      <section className='bg flex flex-col justify-center items-center font-josefin relative text-white bg-scroll text-base'> 
-        <div className={`${ishidden ? "hidden" : "fixed"} bg-yellow border-2 border-green  -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-[320px] px-3 rounded-xl h-[330px] flex flex-col justify-around items-center`}>
+      <section className='bg flex flex-col justify-center items-center font-josefin relative text-black bg-scroll text-base'> 
+        <div className={`${ishidden ? "hidden" : "fixed"} bg-cream border-2 border-black  -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-[320px] p-2 px-3 rounded-xl h-[330px] flex flex-col justify-around items-center`}>
           <p>
             O God, you granted your servant Montse the grace of serene and cheerful dedication to your will with admirable simplicity in everyday life. Grant that I may lovingly offer to you all my daily activity and convert it into Christian service for others. Deign to glorify your servant Montse and through her intercession grant me the favor I ask of you… (here make your request). Amen.
           </p>
@@ -86,11 +86,11 @@ function App() {
           </p>
         </div>
         <div className='flex flex-col md:flex-row-reverse md:h-[100vh]'>
-          <div className='bg-yellow w-full flex flex-col justify-center items-center md:items-start p-4 px-3 md:px-0 md:w-[40%]'>
+          <div className='bg-cream w-full flex flex-col justify-center items-center md:items-start p-4 px-3 md:px-0 md:w-[40%]'>
             <h1 className='font-frank text-lg uppercase md:hidden mb-4'>1000 Rosary Tracker For Fr. Tobe</h1>
-            <img className='w-[250px] h-[280px] md:h-[80%] md:w-[90%] items-center justify-self-center md:justify-self-start' src="/Fr.Tobe.jpg" alt="Fr-Tobe's picture" />
+            <img className='w-[280px] h-[280px] md:h-[80%] md:w-[90%] rounded-full items-center justify-self-center md:justify-self-start' src="/Fr.Tobe.jpg" alt="Fr-Tobe's picture" />
           </div>
-          <div className='bg-green p-6 px-4 md:w-[60%]'>
+          <div className='bg-black text-white p-6 px-4 md:w-[60%]'>
             <h1 className='font-frank text-lg uppercase hidden md:block mb-3'>1000 Rosary Tracker For Fr. Tobe</h1>
             <div className="h-[570px] min-[450px]:h-[500px] min-[500px]:h-[450px] min-[640px]:h-[370px] md:h-[480px] lg:h-[450px] about flex flex-col items-center justify-around">
               <p>Fr Tobe Okoye is a priest of the prelature of Opus Dei ordained on May 9 2015. He serves as the chaplain of the Akoka Study Centre Yaba Lagos and Afara Leadership Centre Yaba Lagos.He was recently diagnosed with Myeloma, a form of blood cell cancer that would require further medical assessment and care at,  Clínica Universidad de Navarra, Madrid Spain.</p>
@@ -103,13 +103,13 @@ function App() {
             </div>
             <div className='flex justify-around mt-2'>
               <button 
-                className='bg-red w-[100px] md:w-[130px] p-2 rounded-lg' 
+                className='bg-brown w-[100px] md:w-[130px] p-2 rounded-lg' 
                 onClick={handleIncrement}
               >
                 Add prayer 
               </button>
               <button
-                className='bg-yellow w-[200px] md:w-[230px] p-2 rounded-lg'
+                className='bg-cream text-black w-[200px] md:w-[230px] p-2 rounded-lg'
                 onClick={() => {setIsHidden((prev) => !prev )}}
               >
                 Private Devotion Prayer
@@ -120,35 +120,35 @@ function App() {
               <div className='w-full h-2 bg-slate-500 rounded-lg'>
                 <div style={{
                   width:`${count/1000 * 100}%`
-                }} className={` bg-yellow h-2 rounded-lg`}></div>
+                }} className={` bg-brown h-2 rounded-lg`}></div>
               </div>
             </div>
           </div>
         </div>
-        <section className="footer w-full bg-yellow p-4 pb-2 px-3 flex flex-col justify-evenly h-[500px] sm:h-[270px]">
+        <section className="footer w-full bg-cream p-4 pb-2 px-3 flex flex-col justify-evenly h-[500px] sm:h-[270px]">
           <div className='grid grid-cols-1 sm:grid-cols-3 gap-4 place-items-start'>
             <div className="naira flex flex-col justify-center">
               <h4>Denomination: Naira</h4>
               <p>Bank: Stanbic IBTC Bank</p>
               <p>Account Name: Kuramo Development Trust</p>
-              <p>Account Number: <span className='text-red' onClick={() => copyText('0035063422')}>0035063422</span></p>
+              <p>Account Number: <span className='text-brown' onClick={() => copyText('0035063422')}>0035063422</span></p>
             </div>
             <div className="dollar flex flex-col justify-center">
               <h4>Denomination: US Dollar</h4>
               <p>Bank: Stanbic IBTC Bank</p>
               <p>Swift Code: SBICNGLX</p>
               <p>Acc Name: Kuramo Development Trust</p>
-              <p>Acc Number: <span className='text-red' onClick={() => copyText('0035063439')}>0035063439</span></p>
+              <p>Acc Number: <span className='text-brown' onClick={() => copyText('0035063439')}>0035063439</span></p>
             </div>
             <div className="corresponding-bank flex flex-col justify-center">
               <h4>Corresponding Bank: Citibank N.A.</h4>
               <p>Address: 111 Wall Street, New York</p>
               <p>Swift Code: CITIUS33</p>
               <p>ABA: 021000089</p>
-              <p>Account Number: <span className='text-red' onClick={() => copyText('36127476')}>36127476</span></p>
+              <p>Account Number: <span className='text-brown' onClick={() => copyText('36127476')}>36127476</span></p>
             </div>
           </div>
-          <p>For more information contact Chima Ikenganyia <span className="text-red"><a href="tel:+234 706 7008778">+234 706 7008778</a></span></p>
+          <p>For more information contact Chima Ikenganyia <span className="text-brown"><a href="tel:+234 706 7008778">+234 706 7008778</a></span></p>
         </section>
       </section>
     </>

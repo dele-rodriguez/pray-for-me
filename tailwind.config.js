@@ -14,6 +14,8 @@ export default {
         'green': '#08C16F',
         'yellow': '#EDB103',
         'red': '#DB3131',
+        'cream': '#faf8eb',
+        'brown': '#a52a2a',
       },
     },
   },
