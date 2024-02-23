@@ -88,7 +88,7 @@ function App() {
         <div className='flex flex-col md:flex-row-reverse md:h-[100vh]'>
           <div className='bg-cream w-full flex flex-col justify-center items-center md:items-start p-4 px-3 md:px-0 md:w-[40%]'>
             <h1 className='font-frank text-lg uppercase md:hidden mb-4'>1000 Rosary Tracker For Fr. Tobe</h1>
-            <img className='w-[280px] h-[280px] md:h-[80%] md:w-[90%] rounded-full items-center justify-self-center md:justify-self-start' src="/Fr.Tobe.jpg" alt="Fr-Tobe's picture" />
+            <img className='w-[280px] h-[280px] md:h-[80%] md:w-[90%] rounded-full items-center justify-self-center' src="/Fr.Tobe.jpg" alt="Fr-Tobe's picture" />
           </div>
           <div className='bg-black text-white p-6 px-4 md:w-[60%]'>
             <h1 className='font-frank text-lg uppercase hidden md:block mb-3'>1000 Rosary Tracker For Fr. Tobe</h1>
