@@ -1,18 +1,20 @@
 import { useState , useEffect } from 'react';
 import './firebaseconfig.js';
 import './App.css';
-import {getFirestore , setDoc , doc , updateDoc,onSnapshot} from "firebase/firestore";
+import {getFirestore , doc , updateDoc,onSnapshot} from "firebase/firestore";
 
 function App() {
   const db = getFirestore();
   const [count, setCount] = useState();
+  const [privateCount , setPrivateCount] = useState();
   const  collectionRef= doc(db, "myCollection", "store");
   const [mystery , setMystery] = useState(""); 
   const [ishidden , setIsHidden] = useState(true);
 
   useEffect(() => {
     onSnapshot(doc(db, "myCollection", "store"), (doc) => {
-      setCount( doc.data().number)
+      setCount(doc.data().number);
+      setPrivateCount(doc.data().Number);
     });
     const today = new Date().getDay();
     if (today == 0 || today === 3) {
@@ -28,13 +30,23 @@ function App() {
 
   useEffect(() => {
     if (!ishidden) {
-      const timeoutId = setTimeout(() => {
+      const timeoutId = setTimeout(async () => {
         setIsHidden(true);
-      }, 30000);
-  
+        const newPrivateCount = privateCount + 1;
+        setPrivateCount(newPrivateCount);
+        try {
+          await updateDoc(collectionRef, {
+            Number: newPrivateCount
+          });
+          alert("Your Prayer has been Tracked Successfully");
+        } catch (error) {
+          console.error("Error updating Number: ", error);
+        }
+      }, 60000);
       return () => clearTimeout(timeoutId); // Cleanup function to clear the timeout on component unmount or when ishidden changes
     }
   }, [ishidden]);
+  
 
   // const setData = async () => {
   //   try {
@@ -85,18 +97,18 @@ function App() {
             Our Father, Hail Mary, Glory be to the Father
           </p>
         </div>
-        <div className='flex flex-col md:flex-row-reverse md:h-[100vh]'>
-          <div className='bg-cream w-full flex flex-col justify-center items-center md:items-start p-4 px-3 md:px-0 md:w-[40%]'>
-            <h1 className='font-frank text-lg uppercase md:hidden mb-4'>1000 Rosary Tracker For Fr. Tobe</h1>
-            <img className='w-[280px] h-[280px] md:h-[80%] md:w-[90%] rounded-full items-center justify-self-center' src="/Fr.Tobe.jpg" alt="Fr-Tobe's picture" />
+        <div className='flex flex-col md:flex-row-reverse md:h-[100vh] md:border-b-2 md:border-r-2 border-black'>
+          <div className='bg-cream w-full flex flex-col justify-center items-center md:items-center p-4 px-3 md:px-0 md:w-[40%]'>
+            <h1 className='font-frank text-lg uppercase md:hidden mb-4 text-center'>1000 Rosary and Prayer Card Tracker For Fr. Tobe</h1>
+            <img className='w-[280px] h-[280px] md:h-[90%] md:w-[90%] rounded-full items-center justify-self-center' src="/Fr.Tobe.jpg" alt="Fr-Tobe's picture" />
           </div>
           <div className='bg-black text-white p-6 px-4 md:w-[60%]'>
-            <h1 className='font-frank text-lg uppercase hidden md:block mb-3'>1000 Rosary Tracker For Fr. Tobe</h1>
+            <h1 className='font-frank text-lg uppercase hidden md:block mb-3'>1000 Rosary and Prayer Card Tracker For Fr. Tobe</h1>
             <div className="h-[570px] min-[450px]:h-[500px] min-[500px]:h-[450px] min-[640px]:h-[370px] md:h-[480px] lg:h-[450px] about flex flex-col items-center justify-around">
               <p>Fr Tobe Okoye is a priest of the prelature of Opus Dei ordained on May 9 2015. He serves as the chaplain of the Akoka Study Centre Yaba Lagos and Afara Leadership Centre Yaba Lagos.He was recently diagnosed with Myeloma, a form of blood cell cancer that would require further medical assessment and care at,  Clínica Universidad de Navarra, Madrid Spain.</p>
               <p> We wish to accompany him at this period with a lot of care and affection. Kindly join us in the care for Fr Tobe through</p>
               <div>
-                <p className='mb-3'>1. Your prayers. If you have completed reciting the <span className='text-red italic font-frank'>{mystery}</span> mystery, kindly click the 'Add Prayer' button to register your prayer in the counter.</p>
+                <p className='mb-3'>1. Your prayers. If you have completed reciting the Rosary, kindly click the <span className='text-red italic font-frank mr-1'>'Add Prayer' </span> button to register your prayer in the counter.</p>
                 <p className='mb-3'>2. Your contributions which can also be made through the bank details provided in the footer section of the page.</p>
                 <p className='mb-3'>3. Taking a moment to say the <span className='text-red italic font-frank'>private prayer of devotion</span>, inspired by Montse Grases.</p>
               </div>
@@ -110,17 +122,23 @@ function App() {
               </button>
               <button
                 className='bg-cream text-black w-[200px] md:w-[230px] p-2 rounded-lg'
-                onClick={() => {setIsHidden((prev) => !prev )}}
+                onClick={() => {setIsHidden(false)}}
               >
                 Private Devotion Prayer
               </button>
             </div>
-            <div className='py-3'>
-              <h2 className='font-frank text-lg pb-2'>{`Progress: ${1000 - count} Mysteries left`}</h2>
-              <div className='w-full h-2 bg-slate-500 rounded-lg'>
-                <div style={{
-                  width:`${count/1000 * 100}%`
-                }} className={` bg-brown h-2 rounded-lg`}></div>
+            <div className='md:flex md:justify-around md:items-center'>
+              <div className='py-3'>
+                <h2 className='font-frank text-lg pb-2'>{`Rosary Progress: ${1000 - count} Mysteries left`}</h2>
+                <div className='w-full h-2 bg-slate-500 rounded-lg'>
+                  <div style={{width:`${count/1000 * 100}%`}} className={` bg-brown h-2 rounded-lg`}></div>
+                </div>
+              </div>
+              <div className='py-3'>
+                <h2 className='font-frank text-lg pb-2'>{`Prayer Card Progress: ${1000 - privateCount} Prayers left`}</h2>
+                <div className='w-full h-2 bg-slate-500 rounded-lg'>
+                  <div style={{width:`${privateCount/1000 * 100}%`}} className={` bg-brown h-2 rounded-lg`}></div>
+                </div>
               </div>
             </div>
           </div>
