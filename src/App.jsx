@@ -104,7 +104,7 @@ function App() {
           </div>
           <div className='bg-black text-white p-6 px-4 md:w-[60%]'>
             <h1 className='font-frank text-lg uppercase hidden md:block mb-3'>1000 Rosary and Prayer Card Tracker For Fr. Tobe</h1>
-            <div className="h-[570px] min-[450px]:h-[500px] min-[500px]:h-[450px] min-[640px]:h-[370px] md:h-[480px] lg:h-[450px] about flex flex-col items-center justify-around">
+            <div className="h-[590px] min-[450px]:h-[520px] min-[500px]:h-[470px] min-[640px]:h-[390px] md:h-[480px] lg:h-[450px] about flex flex-col items-center justify-around">
               <p>Fr Tobe Okoye is a priest of the prelature of Opus Dei ordained on May 9 2015. He serves as the chaplain of the Akoka Study Centre Yaba Lagos and Afara Leadership Centre Yaba Lagos and Institute for Industrial Technology Lagos. He was recently diagnosed with Myeloma, a form of blood cell cancer that would require further medical assessment and care at,  Clínica Universidad de Navarra, Madrid Spain.</p>
               <p> We wish to accompany him at this period with a lot of care and affection. Kindly join us in the care for Fr Tobe through</p>
               <div>
